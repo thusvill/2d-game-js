@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Santa Run | Play</title>
+    <link rel="stylesheet" href="game-style.css">
+    <link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+</head>
+
+<body onkeyup="KeyCheck(event);" class="body">
+    <div id="fade" class="fade-out"></div>
+    <div id="background" class="background">
+        <div class="tutorials">
+            <div class="t-text">Press <div class="key">Enter</div> to run</div>
+            <div class="t-text">Press <div class="key">|_____|</div> to jump</div>
+            <div class="t-text">Press <div class="key">Ctrl</div> to boost speed</div>
+            <div class="t-text">Press <div class="key">Esc</div> to menu</div>
+        </div>
+        <button class="home" onclick="home()"></button>
+        <div id="high-score-title">High Score<div id="high-score">NAME: SCORE</div></div>
+        <div id="hurt">-10</div>
+        <div id="nos">+10🔥</div>
+        <div id="heal">+10</div>
+        <img src="src/idle/Idle (1).png" id="santa" class="santa">
+        <div id="score" class="hover-effect">🪙: 0</div>
+        <div id="health" class="hover-effect">❤️: 100</div>
+        <div id="level" class="level hover-effect">LVL: 1</div>
+        <div class="nitros"><div id="nitros"></div></div>
+        <div id="lvl-panel">
+            <h1>Level up!</h1>
+            <div id="panel-lvl">LVL: 1</div>
+            <button onclick="Continue();">Press: <div class="key">Enter</div></button>
+        </div>
+
+    </div>
+    <div id="game-over" class="game-over">
+        <div>Game Over</div>
+        <div class="y-s">You Score</div>
+        <div id="end-score">0</div>
+        <div class="high-score-panel" id="h-s-p">
+            <span class="h-s-t">You got High Score</span>
+            <span class="in-name">Name:</span><input type="text" name="NAME_IN" id="name-input" placeholder="Enter your name...">
+            <span id="error-msg">Error: no name</span>
+            <button class="submit-score" onclick="SubmitScore();">Submit <div class="key">Enter</div></button>
+        </div>
+        <button onclick="re();" class="btn" id="btn">Try Again <div class="key">|_____|</div></button>
+        <button onclick="home()" class="menu-btn">Menu <div class="key">Enter</div></button>
+    </div>
+
+    <script src="save_system.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

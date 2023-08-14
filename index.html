@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Santa Run | Main Menu</title>
+        <link rel="stylesheet" href="menu-style.css">
+        <link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+    
+    </head>
+    <body>
+        <div id="fade" class="fade-out"></div>
+        <div class="background" id="bg">
+            <div class="high-score-panel" id="h-s-p">
+                <span class="h-s-h">HIGH SCORE</span>
+                <span id="score">NAME: SCORE</span>
+                <button class="clear" onclick="ClearData();">Clear</button>
+            </div>
+            <img src="src/idle/Idle (1).png" id="santa">
+            <h1 class="h1">Santa Run</h1>
+            <button class="play" onclick="play()">Play <div class="key">Enter</div></button>
+        </div>
+        <script src="save_system.js"></script>
+        <script>
+            var score_panel = document.getElementById("h-s-p");
+            const data = Load();
+            if(data.key2 > 0){
+                setTimeout(function(){
+
+                    score_panel.style.marginTop = "-72vh";
+                    var score = document.getElementById("score");
+                    score.innerHTML = data.key1+": "+data.key2;
+                },1000);
+
+            }
+
+            function ClearData(){
+                Save("",0);
+                score_panel.style.marginTop = "-200vh";
+            }
+
+            var index = 1;
+            var santa = document.getElementById("santa");
+            
+            function loop(){
+                if(index == 17){
+                    index =1;
+                }
+                santa.src = "src/idle/Idle ("+index+").png";
+                index++;
+            }
+            setInterval(loop,100);
+
+            document.addEventListener('keydown', function (event){
+                if(event.key == 'Enter' ){
+                    play();
+                }
+            });
+            function play(){
+                document.getElementById('fade').className = "fade-in";
+                setTimeout(function(){
+                    location.replace('game.html');
+                }, 2000);
+            }
+            var bg_x = 0;
+            function moveBG(){
+                bg_x -= 5;
+                document.getElementById("bg").style.backgroundPositionX = bg_x+"px";
+            }
+            //setInterval(moveBG, 100);
+            var theme = new Audio("src/audio/menu-theme.mp3");
+            theme.volume = 0.5;
+            theme.loop = true;
+            theme.play();
+        </script>
+    </body>
+</html>
