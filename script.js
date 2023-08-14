@@ -483,7 +483,7 @@ function home() {
 //########################NITROS###########################
 
 document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && n_w_id ==0 ) {
+    if (event.ctrlKey && n_w_id ==0 && nirtos > 0 ) {
         n_w_id = setInterval(Nitro);
     //clearInterval(n_w_id);
     }
